@@ -43,8 +43,8 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo apt-get update
-        sudo -E apt-get -qq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+        sudo apt update
+        sudo -E apt -qq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
           bzip2 ccache clang clangd cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib \
           g++-multilib git gperf haveged help2man intltool lib32gcc-s1 libc6-dev-i386 libelf-dev libglib2.0-dev \
           libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev \
@@ -80,9 +80,7 @@ jobs:
       run: |
         cd openwrt
         rm -rf feeds/packages/lang/golang/
-        git clone -b openwrt-24.10 --depth=1 https://github.com/immortalwrt/packages.git packages_master
-        cp -r packages_master/lang/golang feeds/packages/lang/
-        rm -rf packages_master
+        git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
     - name: Update xray-core version
       run: |
