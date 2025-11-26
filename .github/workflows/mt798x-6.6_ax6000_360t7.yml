@@ -106,6 +106,7 @@ jobs:
       id: package
       run: |
         cd openwrt
+        # 将精简版mt798x_ax6000_360t7.config配置扩展成全配置
         make defconfig
         make download -j8 V=11
         find dl -size -1024c -exec ls -l {} \;
